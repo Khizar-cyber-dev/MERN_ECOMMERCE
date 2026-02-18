@@ -1,0 +1,63 @@
+:root{
+	--bg: #ffffff;
+	--muted: #6b7280; /* gray-500 */
+	--card: rgba(15,23,42,0.04); /* subtle card */
+	--accent: #10b981; /* emerald-500 */
+	--accent-600: #059669;
+	--danger: #ef4444;
+}
+
+/* Reset body and base text colors to light theme */
+html,body,#root{
+	height:100%;
+}
+body{
+	background: transparent; /* gradient handled in App.jsx */
+	color: #0f172a; /* slate-900 */
+	font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Map some commonly used dark component backgrounds to light equivalents */
+.bg-gray-900, .bg-gray-800, .bg-gray-700, .bg-gray-600, .bg-gray-800\/60 {
+	background-color: var(--card) !important;
+}
+.text-white{ color: #0f172a !important; }
+.text-gray-300, .text-gray-400, .text-gray-200, .text-gray-500{ color: var(--muted) !important; }
+.border-gray-700, .border-gray-600{ border-color: rgba(15,23,42,0.06) !important; }
+.bg-emerald-600, .bg-emerald-700, .bg-emerald-500{ background-color: var(--accent) !important; }
+.hover\:bg-emerald-700:hover{ background-color: var(--accent-600) !important; }
+.text-emerald-400, .text-emerald-300, .text-emerald-500{ color: var(--accent) !important; }
+.bg-gray-700\/60{ background-color: rgba(15,23,42,0.04) !important; }
+
+/* Specific header override to make navbar translucent on light bg */
+header.fixed.top-0.left-0.w-full{
+	background-color: rgba(255,255,255,0.7) !important;
+	backdrop-filter: blur(6px);
+	border-bottom: 1px solid rgba(15,23,42,0.06);
+}
+
+/* Cards and panels */
+.rounded-lg.border, .shadow-lg, .shadow-sm{ background-clip: padding-box; }
+.bg-gray-700.rounded-lg, .bg-gray-800.rounded-lg, .bg-white.bg-opacity-10 {
+	background-color: #ffffff !important;
+	box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+
+/* Buttons that were gray* should become subtle outlines on light bg */
+.bg-gray-700{ background-color: rgba(15,23,42,0.04) !important; }
+.bg-gray-700:hover{ background-color: rgba(15,23,42,0.06) !important; }
+
+/* Loading spinner adjustments */
+.border-emerald-200{ border-color: rgba(16,185,129,0.12) !important; }
+.border-emerald-500{ border-color: var(--accent) !important; }
+
+/* Small utility: ensure images keep contrast if dark overlay exists */
+.bg-black\.bg-opacity-20{ background-color: rgba(0,0,0,0.05) !important; }
+
+/* Preserve Tailwind container spacing appearance for light theme */
+.container{ max-width: 1280px; margin-left: auto; margin-right: auto; }
+
+/* Accessibility: focus rings for light background */
+:focus{ outline: 2px solid rgba(16,185,129,0.18); outline-offset: 2px; }
+
+/* Keep existing utility classes for layout untouched */
