@@ -104,7 +104,7 @@ export const refreshToken = async (req, res) => {
     }
 
     const { accessToken } = generateToken(decoded.userId);
-    setCookies(res, accessToken);
+    setCookies(res, accessToken, refreshToken);
     res.status(200).json({ accessToken, message: "Token refreshed" });
   }catch(error){
     console.error("Refresh token error:", error);
